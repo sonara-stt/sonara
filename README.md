@@ -14,6 +14,11 @@ Your audio stays local.
   - Latest release: `https://github.com/sonara-stt/sonara/releases/latest`
   - Assets: look for a file like `Sonara_0.1.0_x64-setup.exe` (name may vary)
   - If you don’t see an `.exe` there yet, you haven’t published a Release asset (see “Build Windows .exe” below).
+  - Once an `.exe` asset exists, users can click it and GitHub will download it immediately.
+
+Optional (direct download link, if you keep a stable filename for the installer asset):
+
+- Direct download (`sonara_tauri.exe`): `https://github.com/sonara-stt/sonara/releases/latest/download/sonara_tauri.exe`
 
 If you don’t have Releases set up yet, build locally and share the `.exe`:
 

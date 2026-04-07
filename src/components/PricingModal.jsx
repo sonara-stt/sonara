@@ -17,6 +17,7 @@ import {
   Alert,
   AlertIcon,
   Divider,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { parseInvokeJson } from '../utils/invokeJson'
 
@@ -56,6 +57,8 @@ export default function PricingModal({
 }) {
   const [key, setKey] = useState('')
   const [status, setStatus] = useState(null)
+  const mutedText = useColorModeValue('gray.700', 'gray.200')
+  const subtleText = useColorModeValue('gray.600', 'gray.300')
 
   const buyLifetime = () => {
     const url =
@@ -114,11 +117,11 @@ export default function PricingModal({
         <ModalHeader>{isProUser ? 'Sonara' : 'Upgrade Sonara'}</ModalHeader>
         <ModalBody>
           {isProUser ? (
-            <Text mb={4} color="gray.500">
+            <Text mb={4} color={mutedText}>
               You’re on <b>Lifetime Pro</b>. Export and long uploads are included — no extra purchase needed.
             </Text>
           ) : (
-            <Text mb={5} color="gray.500">
+            <Text mb={5} color={mutedText}>
               {reason ||
                 'Lifetime Pro is a one-time purchase. After checkout you’ll receive a personal unique key.'}
             </Text>
@@ -131,11 +134,11 @@ export default function PricingModal({
               </Heading>
               <Text fontSize="3xl" fontWeight="bold" mb={3}>
                 ${lifetimePrice}
-                <Text as="span" fontSize="md" color="gray.500" ml={1}>
+                <Text as="span" fontSize="md" color={subtleText} ml={1}>
                   once
                 </Text>
               </Text>
-              <List spacing={1} mb={4} color="gray.500">
+              <List spacing={1} mb={4} color={subtleText}>
                 <ListItem>Up to {proUploadHours} hours per file</ListItem>
                 <ListItem>5-minute timestamp blocks</ListItem>
                 <ListItem>Export to .txt</ListItem>
@@ -148,7 +151,7 @@ export default function PricingModal({
           )}
 
           {!isProUser && <Divider my={5} />}
-          <Text fontSize="sm" color="gray.500" mb={2}>
+          <Text fontSize="sm" color={mutedText} mb={2}>
             Have a personal unique license key? Paste the exact key from your Whop email — keys are unshareable and must
             match what we issued for your purchase.
           </Text>
